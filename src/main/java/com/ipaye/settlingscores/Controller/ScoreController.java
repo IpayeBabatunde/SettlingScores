@@ -8,6 +8,37 @@ import org.springframework.web.bind.annotation.*;
 public class ScoreController {
 
     static Scores scores = new Scores(30, 20, 10);
+
+    @PatchMapping("/scores/wins")
+    public Scores updateWins(@RequestParam(name="new-value")int newValue){
+        scores.wins = newValue;
+        return scores;
+    }
+
+    @PatchMapping("/scores/ties")
+    public Scores updateTies(@RequestParam(name="new-value")int newValue){
+        scores.ties = newValue;
+        return scores;
+    }
+
+    @PutMapping("scores")
+    public Scores replaceScores(@RequestBody Scores newScores){
+        scores = newScores;
+        return scores;
+    }
+
+    @DeleteMapping("/scores")
+    public void deleteScores(){
+        scores = null;
+    }
+
+    @PatchMapping("/scores/losses")
+    public Scores updateLosses(@RequestParam(name="new-value")int newValue){
+        scores.losses = newValue;
+        return scores;
+    }
+
+
     @GetMapping("/health-check")
     public String getHealthCheck(){
         return "Situation Normal all fired Up!";
