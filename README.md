@@ -13,3 +13,5 @@ PATCH: updating one property of a resource in a server
 DELETE: removing the resource from the server
 HEAD: provides all the headers from the servers
 OPTIONS: is a request to make when the server is suppose to signal you which of the HTTP methods the restfull api's supports
+
+PatchMapping: it allows to update just one property of a resource
